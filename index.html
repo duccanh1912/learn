@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap & jQuery</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var no = 0;
+            var dataList = new Array();
+
+
+
+            $("#home_menu").click(function(){
+                $("#user_managerment_panel").show();
+                $("#add_user_panel").show();
+            });
+            $("#user_managerment_menu").click(function(){
+                $("#user_managerment_panel").show();
+                $("#add_user_panel").hide();
+            });
+            $("#add_user_menu").click(function(){
+                $("#user_managerment_panel").hide();
+                $("#add_user_panel").show();
+            });
+            $("#add_user").click(function(){
+                var fullname = $("[name=fullname]").val();
+                var address = $("[name=address]").val();
+                var age = $("[name=age]").val();
+                var email = $("[name=email]").val();
+                var phone_number = $("[name=phone_number]").val();
+
+                dataList[dataList.length] = {
+                    
+                };
+
+                no++;
+                $("#dataList").append("<tr>"+
+                                "<td>"+no+"</td>"+
+                                "<td>"+fullname+"</td>"+
+                                "<td>"+address+"</td>"+
+                                "<td>"+age+"</td>"+
+                                "<td>"+email+"</td>"+
+                                "<td>"+phone_number+"</td>"+
+                            "</tr>")
+            });
+            $("#sort").click(function(){
+
+            });
+                });
+    </script>
+    <body>
+        <ul class="breadcrumb">
+            <li class="active" id="home_menu">Home</li>
+            <li id="user_managerment_menu">User managerment</li>
+            <li id="add_user_menu">Add user</li>
+        </ul>
+        
+        <div class="container-fluid" id="user_managerment_panel">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    User managerment
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>No</td>
+                                <td>Full name</td>
+                                <td>Address</td>
+                                <td>Age</td>
+                                <td>Email</td>
+                                <td>Phone number</td>
+                            </tr>
+                        </thead>
+                        <tbody id="dataList">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="add_user_panel">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Add user
+                </div>
+                <div class="panel-body">
+                     <form class="form" method="get" action="#add_user">
+                        <input type="text" name="fullname" placeholder="Enter fullname" size="50"><br/><br/>
+                        <input type="text" name="address" placeholder="Enter address" size="50"><br/><br/>
+                        <input type="number" name="age" placeholder="Enter age" size="50"><br/><br/>
+                        <input type="text" name="email" placeholder="Enter email" size="50"><br/><br/>
+                        <input type="number" name="phone_number" placeholder="Enter phone number" size="50"><br/><br/>
+                        <button type="button" id="add_user">Add user</button>&nbsp;&nbsp;
+                        <button type="button" id="sort">Sort</button>&nbsp;&nbsp;
+                        <button type="reset">Reset</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
